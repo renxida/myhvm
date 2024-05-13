@@ -14,6 +14,7 @@
         "vscode": {
             "terminal.integrated.shell.linux": "/bin/bash",
             "extensions": [
+                "github.copilot",
                 "vadimcn.vscode-lldb",
                 "mutantdino.resourcemonitor",
                 "rust-lang.rust-analyzer"
