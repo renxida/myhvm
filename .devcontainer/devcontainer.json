@@ -14,10 +14,9 @@
         "terminal.integrated.shell.linux": "/bin/bash"
     },
     "extensions": [
-        "rust-lang.rust",
         "vadimcn.vscode-lldb",
         "mutantdino.resourcemonitor",
-        "matklad.rust-analyzer"
+        "rust-lang.rust-analyzer"
     ],
-    "postCreateCommand": "apt-get update && apt-get install -y curl build-essential libssl-dev pkg-config && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && rustup default nightly && cargo install hvm"
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y curl build-essential libssl-dev pkg-config && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && rustup default nightly && cargo install hvm"
 }
