@@ -1,6 +1,8 @@
 {
     "name": "Rust and HVM Development Container",
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:1": {
             "installZsh": true,
@@ -20,6 +22,5 @@
                 "rust-lang.rust-analyzer"
             ]
         }
-    },
-    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y curl build-essential libssl-dev pkg-config && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && rustup default nightly && cargo install hvm"
+    }
 }
