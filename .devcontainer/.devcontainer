@@ -1,30 +1,23 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/rust
 {
-	"name": "Rust",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			"settings": {},
-			"extensions": [
-				"streetsidesoftware.code-spell-checker"
-			]
-		}
-	}
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "rustc --version",
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+    "name": "Rust and HVM Development Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:1": {
+            "installZsh": true,
+            "username": "vscode",
+            "uid": "1000",
+            "gid": "1000",
+            "upgradePackages": true
+        }
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "rust-lang.rust",
+        "vadimcn.vscode-lldb",
+        "mutantdino.resourcemonitor",
+        "matklad.rust-analyzer"
+    ],
+    "postCreateCommand": "apt-get update && apt-get install -y curl build-essential libssl-dev pkg-config && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && rustup default nightly && cargo install hvm"
 }
