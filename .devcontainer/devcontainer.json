@@ -1,27 +1,28 @@
 {
     "name": "Rust and HVM Development Container",
     "build": {
-        "dockerfile": "Dockerfile"
+      "dockerfile": "Dockerfile"
     },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:1": {
-            "installZsh": true,
-            "username": "vscode",
-            "uid": "1000",
-            "gid": "1000",
-            "upgradePackages": true
-        }
+      "ghcr.io/devcontainers/features/common-utils:1": {
+        "installZsh": true,
+        "username": "vscode",
+        "uid": "1000",
+        "gid": "1000",
+        "upgradePackages": true
+      }
     },
     "customizations": {
-        "vscode": {
-            "terminal.integrated.shell.linux": "/bin/bash",
-            "extensions": [
-                "github.copilot",
-                "vadimcn.vscode-lldb",
-                "mutantdino.resourcemonitor",
-                "rust-lang.rust-analyzer",
-                "github.copilot-chat"
-            ]
-        }
-    }
-}
+      "vscode": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "extensions": [
+          "github.copilot",
+          "vadimcn.vscode-lldb",
+          "mutantdino.resourcemonitor",
+          "rust-lang.rust-analyzer",
+          "github.copilot-chat"
+        ]
+      }
+    },
+    "postCreateCommand": "mkdir -p /workspaces && cd /workspaces && git clone https://github.com/HigherOrderCO/bend.git && cd bend && cargo install --path . --locked"
+  }
