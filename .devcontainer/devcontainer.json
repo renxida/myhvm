@@ -19,7 +19,8 @@
                 "github.copilot",
                 "vadimcn.vscode-lldb",
                 "mutantdino.resourcemonitor",
-                "rust-lang.rust-analyzer"
+                "rust-lang.rust-analyzer",
+                "github.copilot-chat"
             ]
         }
     }
