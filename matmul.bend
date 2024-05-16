@@ -71,8 +71,3 @@ def matmul(a, b):
         head: mv(bt, a.head)
         tail: matmul(a.tail, b)
       }
-  
-def main():
-  a = [[1,2,3],[4,5,6],[7,8,9]]
-  b = [[1,2,3],[4,5,6],[7,8,9]]
-  return matmul(a, b)
