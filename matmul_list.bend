@@ -6,9 +6,9 @@ def prod(a,b):
 
 def sum(nums):
   fold nums:
-    case List/nil: 
+    case List/Nil: 
       return 0
-    case List/cons:
+    case List/Cons:
       return nums.head + nums.tail
 
 def dot(a, b):
@@ -17,45 +17,45 @@ def dot(a, b):
 
 def head(list):
   match list:
-    case List/cons:
+    case List/Cons:
       return list.head
-    case List/nil :
+    case List/Nil :
       return list
 
 
 def tail(list):
   match list:
-    case List/cons:
+    case List/Cons:
       return list.tail
-    case List/nil:
+    case List/Nil:
       return list
 
 
 def List.map(f, list):
   fold list:
-    case List/cons:
-      return List/cons {head: f(list.head), tail: list.tail}
-    case List/nil:
-      return List/nil
+    case List/Cons:
+      return List/Cons {head: f(list.head), tail: list.tail}
+    case List/Nil:
+      return List/Nil
 
 def transpose(matrix):
   match matrix:
-    case List/cons:
+    case List/Cons:
       match head(matrix):
-        case List/cons:
-          return List/cons {head: List.map(head, matrix), tail: transpose(List.map(tail, matrix))}
-        case List/nil:
-          return List/nil
-    case List/nil:
-      return List/nil
+        case List/Cons:
+          return List/Cons {head: List.map(head, matrix), tail: transpose(List.map(tail, matrix))}
+        case List/Nil:
+          return List/Nil
+    case List/Nil:
+      return List/Nil
       
 
 def mv(mat, vec):
   match mat:
-    case List/nil:
-      return List/nil
-    case List/cons:
-      return List/cons {
+    case List/Nil:
+      return List/Nil
+    case List/Cons:
+      return List/Cons {
         head: dot(mat.head, vec),
         tail: mv(mat.tail, vec)
       }
@@ -64,10 +64,10 @@ def mv(mat, vec):
 def matmul(a, b):
   bt = transpose(b)
   match a:
-    case List/nil:
-      return List/nil
-    case List/cons:
-      return List/cons {
+    case List/Nil:
+      return List/Nil
+    case List/Cons:
+      return List/Cons {
         head: mv(bt, a.head)
         tail: matmul(a.tail, b)
       }
